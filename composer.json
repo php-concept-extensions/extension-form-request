@@ -1,6 +1,6 @@
 {
     "name": "php-concept/extension-form-request",
-    "description": "Concept FormRequest extension — form request factory and argument resolver",
+    "description": "Concept FormRequest extension \u2014 form request factory and argument resolver",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -18,5 +18,16 @@
         "league/container": "^5.1",
         "psr/http-message": "^2.0",
         "psr/event-dispatcher": "^1.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }
