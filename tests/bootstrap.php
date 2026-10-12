@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-$candidates = array_filter([
+$candidates = array_values(array_filter([
     getenv('EXTENSION_TEST_AUTOLOAD') ?: null,
-    dirname(__DIR__) . '/vendor/autoload.php',
-    dirname(__DIR__, 2) . '/vendor/autoload.php',
-]);
+    dirname(__DIR__) . '/vendor/autoload.php',      // standalone package install
+    dirname(__DIR__, 3) . '/vendor/autoload.php',   // monorepo: packages/{name}/tests → root
+]));
 
 $autoload = null;
 foreach ($candidates as $candidate) {
-    if (is_string($candidate) && is_file($candidate)) {
+    if (is_file($candidate)) {
         $autoload = $candidate;
         break;
     }
