@@ -632,16 +632,16 @@
         },
         {
             "name": "php-concept/core-2",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept/concept-core-2.git",
-                "reference": "8d753ed931d1fdc2a0e332e44a151a2855a67e73"
+                "reference": "df54479e9c7673858ae99b3fdbabc86273062eb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept/concept-core-2/zipball/8d753ed931d1fdc2a0e332e44a151a2855a67e73",
-                "reference": "8d753ed931d1fdc2a0e332e44a151a2855a67e73",
+                "url": "https://api.github.com/repos/php-concept/concept-core-2/zipball/df54479e9c7673858ae99b3fdbabc86273062eb2",
+                "reference": "df54479e9c7673858ae99b3fdbabc86273062eb2",
                 "shasum": ""
             },
             "require": {
@@ -669,22 +669,22 @@
             "description": "Concept Framework Core Engine",
             "support": {
                 "issues": "https://github.com/php-concept/concept-core-2/issues",
-                "source": "https://github.com/php-concept/concept-core-2/tree/v1.0.6"
+                "source": "https://github.com/php-concept/concept-core-2/tree/v1.0.7"
             },
-            "time": "2026-11-06T09:45:40+00:00"
+            "time": "2026-11-06T10:49:13+00:00"
         },
         {
             "name": "php-concept/extension-casting-valinor",
-            "version": "v1.1.3",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-extensions/extension-casting-valinor.git",
-                "reference": "6b1f00795320f5981d8e28f40c40f67505de0837"
+                "reference": "464e024b06631515498a66248ea102927cbea9ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-extensions/extension-casting-valinor/zipball/6b1f00795320f5981d8e28f40c40f67505de0837",
-                "reference": "6b1f00795320f5981d8e28f40c40f67505de0837",
+                "url": "https://api.github.com/repos/php-concept-extensions/extension-casting-valinor/zipball/464e024b06631515498a66248ea102927cbea9ca",
+                "reference": "464e024b06631515498a66248ea102927cbea9ca",
                 "shasum": ""
             },
             "require": {
@@ -709,22 +709,22 @@
             "description": "Concept Casting extension — Valinor caster and typed route parameter resolving",
             "support": {
                 "issues": "https://github.com/php-concept-extensions/extension-casting-valinor/issues",
-                "source": "https://github.com/php-concept-extensions/extension-casting-valinor/tree/v1.1.3"
+                "source": "https://github.com/php-concept-extensions/extension-casting-valinor/tree/v1.1.4"
             },
-            "time": "2026-10-14T13:08:23+00:00"
+            "time": "2026-11-06T10:28:46+00:00"
         },
         {
             "name": "php-concept/extension-event",
-            "version": "v1.1.3",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-extensions/extension-event.git",
-                "reference": "7826ef9dfae33cb38b3218b71c2d7e6404959723"
+                "reference": "c15440104e07acc0982e32da503ee75f152bc008"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-extensions/extension-event/zipball/7826ef9dfae33cb38b3218b71c2d7e6404959723",
-                "reference": "7826ef9dfae33cb38b3218b71c2d7e6404959723",
+                "url": "https://api.github.com/repos/php-concept-extensions/extension-event/zipball/c15440104e07acc0982e32da503ee75f152bc008",
+                "reference": "c15440104e07acc0982e32da503ee75f152bc008",
                 "shasum": ""
             },
             "require": {
@@ -747,22 +747,22 @@
             "description": "Concept Event extension — League Event dispatcher wiring",
             "support": {
                 "issues": "https://github.com/php-concept-extensions/extension-event/issues",
-                "source": "https://github.com/php-concept-extensions/extension-event/tree/v1.1.3"
+                "source": "https://github.com/php-concept-extensions/extension-event/tree/v1.1.4"
             },
-            "time": "2026-10-14T13:08:23+00:00"
+            "time": "2026-11-06T10:28:46+00:00"
         },
         {
             "name": "php-concept/extension-support",
-            "version": "v1.1.3",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-extensions/extension-support.git",
-                "reference": "5d936c74a6083688f6bf8ba74515fa0447e3e2b6"
+                "reference": "f94a33b29c2c6f6b4d3c42d21761360744d46704"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-extensions/extension-support/zipball/5d936c74a6083688f6bf8ba74515fa0447e3e2b6",
-                "reference": "5d936c74a6083688f6bf8ba74515fa0447e3e2b6",
+                "url": "https://api.github.com/repos/php-concept-extensions/extension-support/zipball/f94a33b29c2c6f6b4d3c42d21761360744d46704",
+                "reference": "f94a33b29c2c6f6b4d3c42d21761360744d46704",
                 "shasum": ""
             },
             "require": {
@@ -781,22 +781,22 @@
             "description": "Concept Extension Support — dependency-free runtime contract and factory helpers",
             "support": {
                 "issues": "https://github.com/php-concept-extensions/extension-support/issues",
-                "source": "https://github.com/php-concept-extensions/extension-support/tree/v1.1.3"
+                "source": "https://github.com/php-concept-extensions/extension-support/tree/v1.1.4"
             },
-            "time": "2026-10-14T13:08:23+00:00"
+            "time": "2026-11-06T10:28:46+00:00"
         },
         {
             "name": "php-concept/extension-validation-rakit",
-            "version": "v1.1.3",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-extensions/extension-validation-rakit.git",
-                "reference": "a65555cedcee07d152fac760c0bc3d5f5153ce63"
+                "reference": "ff00812620dd11445b92be737a6ffb18cc29435b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-extensions/extension-validation-rakit/zipball/a65555cedcee07d152fac760c0bc3d5f5153ce63",
-                "reference": "a65555cedcee07d152fac760c0bc3d5f5153ce63",
+                "url": "https://api.github.com/repos/php-concept-extensions/extension-validation-rakit/zipball/ff00812620dd11445b92be737a6ffb18cc29435b",
+                "reference": "ff00812620dd11445b92be737a6ffb18cc29435b",
                 "shasum": ""
             },
             "require": {
@@ -822,9 +822,9 @@
             "description": "Concept Validation extension — magewirephp/validation and validation exceptions",
             "support": {
                 "issues": "https://github.com/php-concept-extensions/extension-validation-rakit/issues",
-                "source": "https://github.com/php-concept-extensions/extension-validation-rakit/tree/v1.1.3"
+                "source": "https://github.com/php-concept-extensions/extension-validation-rakit/tree/v1.1.4"
             },
-            "time": "2026-10-14T13:08:23+00:00"
+            "time": "2026-11-06T10:28:46+00:00"
         },
         {
             "name": "psr/container",
