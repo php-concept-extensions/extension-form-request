@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Concept\Extensions\CastingValinor\Caster;
 use Concept\Extensions\FormRequest\Factory\FormRequestFactory;
+use Concept\Extensions\FormRequest\Requests\FormRequest;
 use Concept\Extensions\ValidationRakit\Validator;
 use InvalidArgumentException;
 use Laminas\Diactoros\ServerRequest;
@@ -46,6 +47,79 @@ final class FormRequestTest extends TestCase
             'page' => '1',
             'email' => 'user@example.com',
             'name' => 'Alice',
+        ], $formRequest->all());
+    }
+
+    public function testAllConvertsEmptyStringsToNullByDefault(): void
+    {
+        $request = (new ServerRequest())->withParsedBody([
+            'email' => 'user@example.com',
+            'name' => '',
+            'nested' => ['slug' => '', 'keep' => 'x'],
+        ]);
+        $formRequest = new SampleFormRequest($request, new Validator());
+
+        $this->assertSame([
+            'email' => 'user@example.com',
+            'name' => null,
+            'nested' => ['slug' => null, 'keep' => 'x'],
+        ], $formRequest->all());
+    }
+
+    public function testAllCanKeepEmptyStringsWhenDisabled(): void
+    {
+        $request = (new ServerRequest())->withParsedBody([
+            'email' => 'user@example.com',
+            'name' => '',
+        ]);
+        $formRequest = new class ($request, new Validator()) extends FormRequest {
+            protected bool $convertEmptyStringsToNull = false;
+
+            public function rules(): array
+            {
+                return [
+                    'email' => 'required|email',
+                    'name' => 'required',
+                ];
+            }
+        };
+
+        $this->assertSame([
+            'email' => 'user@example.com',
+            'name' => '',
+        ], $formRequest->all());
+    }
+
+    public function testAllUsesCustomNormalize(): void
+    {
+        $request = (new ServerRequest())->withParsedBody([
+            'email' => '  user@example.com  ',
+            'name' => '',
+        ]);
+        $formRequest = new class ($request, new Validator()) extends FormRequest {
+            public function rules(): array
+            {
+                return [
+                    'email' => 'required|email',
+                    'name' => 'nullable',
+                ];
+            }
+
+            protected function normalize(array $data): array
+            {
+                $data = parent::normalize($data);
+
+                if (isset($data['email']) && is_string($data['email'])) {
+                    $data['email'] = trim($data['email']);
+                }
+
+                return $data;
+            }
+        };
+
+        $this->assertSame([
+            'email' => 'user@example.com',
+            'name' => null,
         ], $formRequest->all());
     }
 

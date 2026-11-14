@@ -19,6 +19,11 @@ use Psr\Http\Message\ServerRequestInterface;
 abstract class FormRequest implements FormRequestInterface
 {
     /**
+     * HTML forms send "" for empty optional fields; nullable DTO types expect null.
+     */
+    protected bool $convertEmptyStringsToNull = true;
+
+    /**
      * Fields that should be excluded from validation for all requests
      *
      * @var array<string>
@@ -162,6 +167,7 @@ abstract class FormRequest implements FormRequestInterface
         $body = $this->request->getParsedBody();
         $parsedBody = is_array($body) ? $body : (is_object($body) ? (array) $body : []);
         $data = array_merge($this->request->getQueryParams(), $parsedBody);
+        $data = $this->normalize($data);
 
         if ($this->validationLogger instanceof ValidationLogger) {
             $this->validationLogger->logIncoming(
@@ -169,6 +175,39 @@ abstract class FormRequest implements FormRequestInterface
                 $this->request->getUri()->getPath(),
                 $data,
             );
+        }
+
+        return $data;
+    }
+
+    /**
+     * Transform request data before validation / all().
+     * Override to add custom normalization; call parent to keep empty-string handling.
+     *
+     * @param array<mixed> $data
+     * @return array<mixed>
+     */
+    protected function normalize(array $data): array
+    {
+        if ($this->convertEmptyStringsToNull) {
+            return $this->normalizeEmptyStrings($data);
+        }
+
+        return $data;
+    }
+
+    /**
+     * @param array<mixed> $data
+     * @return array<mixed>
+     */
+    protected function normalizeEmptyStrings(array $data): array
+    {
+        foreach ($data as $key => $value) {
+            if (is_array($value)) {
+                $data[$key] = $this->normalizeEmptyStrings($value);
+            } elseif ($value === '') {
+                $data[$key] = null;
+            }
         }
 
         return $data;
